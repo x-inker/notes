@@ -1,0 +1,1049 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%9A%E9%A1%B9%E5%BC%8F/">
+      
+      
+        <link rel="next" href="../%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>5.1 矩阵的运算 - x-inker`s notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheet/mkdocs_extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#51" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="x-inker`s notes" class="md-header__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            x-inker`s notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5.1 矩阵的运算
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-tabs__link">
+        数学分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-tabs__link">
+        英语口语
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-tabs__link md-tabs__link--active">
+        高等代数
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="x-inker`s notes" class="md-nav__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    x-inker`s notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          数学分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数学分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          数学分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        1. 实数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90/" class="md-nav__link">
+        1. 函数极限概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90/" class="md-nav__link">
+        1.数列极限概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AF%BC%E6%95%B0%E5%92%8C%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        1. 导数的概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/" class="md-nav__link">
+        1. 连续性概念
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          英语口语
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="英语口语" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          英语口语
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-nav__link">
+        Unit 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%202/" class="md-nav__link">
+        Unit 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%203/" class="md-nav__link">
+        Unit 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%204/" class="md-nav__link">
+        Unit 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%205/" class="md-nav__link">
+        Unit 5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
+          高等代数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等代数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高等代数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        整除性质
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        1.1 集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%A1%8C%E5%88%97%E5%BC%8F/" class="md-nav__link">
+        3.1 线性方程组和行列式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-nav__link">
+        2.1 一元多项式的定义和运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5.1 矩阵的运算
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" class="md-nav__link">
+        4.1消元法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/edit/master/docs/高等代数/第五章 矩阵.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/raw/master/docs/高等代数/第五章 矩阵.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+
+<h1 id="51">5.1 矩阵的运算<a class="headerlink" href="#51" title="Permanent link">&para;</a></h1>
+<p>令*F*是一个数域。用*F*的元素<span class="arithmatex">\(a_{ij}\)</span>作成的一个m行n列矩阵<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{m1}&amp;a_{m2}&amp;\cdots&amp;a_{mn}\\
+\end{bmatrix}\)</span>\)</span>叫作一个*F*上的**矩阵**。*A*也简记作<span class="arithmatex">\((a_{ij})\)</span>。为了指明*A*的行数和列数，又是也把它记作<span class="arithmatex">\(A_{mn}或(a_{ij})_{mn}\)</span>.</p>
+<blockquote>
+<p>一个m行n列矩阵简称为一个<span class="arithmatex">\(m\times n\)</span>矩阵。特别，把一个<span class="arithmatex">\(n\times n\)</span>矩阵叫作一个**n阶方阵**，或**n阶矩阵**
+    *F*上的两个矩阵，只有在它们有相同的行数和列数，并且对应位置上的元素都相等时，才认为是相等的。</p>
+</blockquote>
+<p><strong>定义1</strong>  数域*F*的数a与*F*上一个<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\(A=(a_{ij})\)</span>的乘积a*A*指的是<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\((aa_{ij})\)</span>。求两个矩阵乘积的运算叫作矩阵的乘法。</p>
+<p><strong>定义2</strong>  两个<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\(A=(a_{ij}),B=(b_{ij})\)</span>的和*A+B*指的是<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\((a_{ij}+b_{ij})\)</span>.求两个矩阵和的运算叫作矩阵的加法。</p>
+<blockquote>
+<p><strong>注：只能把行数相同，列数相同的两个矩阵相加</strong>。</p>
+</blockquote>
+<p>把由*F*的n个数所组成的数列<span class="arithmatex">\(a_1,a_2,\cdots,a_n\)</span>叫作*F*上一个**n元数列**。这样的一个n元数列可以理解为一个一行n列矩阵<span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}
+a_1,a_2,\cdots,a_n
+\end{bmatrix},\)</span>\)</span>也可以理解为一个n行一列矩阵<span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}
+a_1\\a_2\\\vdots \\a_n
+\end{bmatrix},\)</span>\)</span>
+把元素全是零的矩阵叫作**零矩阵**，记作***O***。如果矩阵<span class="arithmatex">\(A=(a_{ij})\)</span>，我们就把矩阵<span class="arithmatex">\((-a_{ij})\)</span>叫作*A*的**负矩阵**.记作-<em>A</em>。</p>
+<p>运算规律：
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+A+B=B+A\\
+(A+B)+C=A=(B+C)\\
+O+A=A\\
+A+(-A)=O\\
+a(A+B)=aA+aB\\
+(a+b)A=aA+bA\\
+a(bA)=(ab)A\end{aligned}\)</span>\)</span>这里A，B，C表示任意<span class="arithmatex">\(m\times n\)</span>矩阵，a和b表示*F*中的任意数。
+  利用负矩阵，定义矩阵的减法：<span class="arithmatex">\(<span class="arithmatex">\(A-B=A+(-B)\)</span>\)</span>于是有<span class="arithmatex">\(<span class="arithmatex">\(A+B=C\iff A=C-B\)</span>\)</span></p>
+<blockquote>
+<p>由于数列是矩阵的特例，以上运算规律对于数列也成立。</p>
+</blockquote>
+<p>在作矩阵的乘法是，用求和符号<span class="arithmatex">\(\sum\)</span>比较简便
+  一重求和符号是我们所熟悉的，我们只指出一下等式成立：<span class="arithmatex">\(<span class="arithmatex">\(a({\sum_{i=1}^n}b_i )={\sum_{i=1}^n}ab_i,({\sum_{i-1}^n}b_i)a={\sum_{i=1}^n}{b_i}a\)</span>\)</span>
+  这里的a与i无关。</p>
+<p>常用到形如<span class="arithmatex">\(<span class="arithmatex">\({\sum_{i=1}^m}{\sum_{j=1}^n}{a_i}{b_j}\)</span>\)</span>的双重求和符号.双重求和符号的意思是，先对第二个求和符号求和，在对第一个求和符号求和.这样.$$\begin{aligned}
+{\sum_{i=1}<sup>m}{\sum_{j=1}</sup>n}{a_i}{b_j} &amp; = {\sum_{i=1}<sup>m}{a_i}({\sum_{j=1}</sup>n}{b_j})\
+&amp; = {\sum_{i=1}^m}{a_i}(b_1+b_2+\cdots +b_n)\
+&amp; = {a_1}{b_1}+{a_1}{b_2}+\cdots +{a_1}{b_n}\
+&amp;+{a_2}{b_1}+{a_2}{b_2}+\cdots +{a_2}{b_n}\
+&amp;+\cdots \cdots  \cdots  \cdots \
+&amp;+{a_m}{b_1}+{a_m}{b_2}+\cdots +{a_m}{b_n}\end{aligned}
+<span class="arithmatex">\(<span class="arithmatex">\(如果交换求和符号的次序，那么就有\)</span>\)</span>\begin{aligned}
+{\sum_{j=1}<sup>n}{\sum_{i=1}</sup>m}{a_i}{b_j} &amp; = {\sum_{j=1}<sup>n}（{\sum_{i=1}</sup>m}{a_i}）{b_j}\</p>
+<p>&amp; = {a_1}{b_1}+{a_2}{b_1}+\cdots +{a_m}{b_1}\
+&amp;+{a_1}{b_2}+{a_2}{b_2}+\cdots +{a_m}{b_2}\
+&amp;+\cdots \cdots  \cdots  \cdots \
+&amp;+{1_n}{b_1}+{a_2}{b_n}+\cdots +{a_m}{b_n}\end{aligned}
+<span class="arithmatex">\(<span class="arithmatex">\(显然两个等式的右端相等，因此有\)</span>\)</span>{\sum_{i=1}<sup>m}{\sum_{j=1}</sup>n}{a_i}{b_j}={\sum_{j=1}<sup>n}{\sum_{i=1}</sup>m}{a_i}{b_j}$$也就是说，<strong>双重求和符号可以交换次序</strong>。</p>
+<p><strong>定义3</strong>  数域*F*上<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\(A=(a_{ij})\)</span>与<span class="arithmatex">\(n\times p\)</span>矩阵<span class="arithmatex">\(B=(b_{ij})\)</span>的乘积*AB*指的是这样一个<span class="arithmatex">\(m\times p\)</span>矩阵，这个矩阵的第i行第j列<span class="arithmatex">\((i=1,2,\cdots,m;j=1,2,\cdots,p)\)</span>的元素<span class="arithmatex">\(c_{ij}\)</span>等于*A*的第i行的元素与*B*的第j列的对应元素的乘积的和：<span class="arithmatex">\(<span class="arithmatex">\(c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots +a_{in}b_{nj}\)</span>\)</span></p>
+<blockquote>
+<p><strong>矩阵的乘法不满足交换律</strong>。
+ <strong>但矩阵的乘法满足结合律</strong>：<span class="arithmatex">\(<span class="arithmatex">\((AB)C=A(BC)\)</span>\)</span></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>数1乘任何数a仍得a。对矩阵的乘法来说，存在这样的矩阵，它们有类似于数1的性质
+</code></pre></div>
+<p>把主对角线上的元素都是1，而其他元素都是0的n阶方阵 <span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}
+1&amp;0&amp;\cdots &amp;0\\
+0&amp;1&amp;\cdots &amp;0\\
+\vdots &amp;\vdots &amp; &amp;\vdots \\
+0&amp;0&amp;\cdots &amp;1\end{bmatrix}\)</span>\)</span>叫作**n阶单位矩阵**，记作<span class="arithmatex">\(I_n\)</span>，有时简记作<span class="arithmatex">\(I\)</span>.</p>
+<p><span class="arithmatex">\(I_n\)</span>显然有一下性质：<span class="arithmatex">\(<span class="arithmatex">\({I_n}A_{np}=A_{np},A_{mn}{I_n}=A_{mn}\)</span>\)</span></p>
+<blockquote>
+<p><strong>矩阵的乘法和加法满足分配律</strong>：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+ A(B+C)=AB+AC\\
+ (B+C)A=BA+CA\end{aligned}\)</span>\)</span>
+    <strong>注：由于矩阵的乘法不满足交换律，所以这两个式子并不能互推</strong>。</p>
+<p>矩阵的乘法和数与矩阵的乘法显然满足一下规律：<span class="arithmatex">\(<span class="arithmatex">\(a(AB=(aA)B=A(aB)\)</span>\)</span></p>
+</blockquote>
+<p>给定任意r个矩阵<span class="arithmatex">\(A_1,A_2,\cdots,A_r\)</span>，只要前一个矩阵的列数等于后一个矩阵的行数，就可以把它们依次相乘。
+    由于矩阵的乘法满足结合律，做这样的乘积时，可以把因子任意结合，而乘积<span class="arithmatex">\({A_1}{A_2}\cdots {A_r}\)</span>有完全确定的意义。<strong>特别</strong>，一个n阶方阵*A*的r次方（r是正整数）有意义：<span class="arithmatex">\(<span class="arithmatex">\(A^r=AA\cdots A\)</span>\)</span>再约定<span class="arithmatex">\(<span class="arithmatex">\(A^0=I\)</span>\)</span>这样一来，一个n阶方阵的任意非负整数次方有意义
+设<span class="arithmatex">\(<span class="arithmatex">\(f(x)=a_0+{a_1}x+\cdots +{a_m}{x^m}\)</span>\)</span>是<span class="arithmatex">\(F[x]\)</span>中一个多项式，而<span class="arithmatex">\(A\)</span>是一个n阶方阵，那么<span class="arithmatex">\({a_0}I+{a_1}A+\cdots +{a_m}{A^m}\)</span>有确定的意义，它仍是<span class="arithmatex">\(F\)</span>上的一个n阶方阵，将它记作<span class="arithmatex">\(f(A)\)</span>：<span class="arithmatex">\(<span class="arithmatex">\(f(A)={a_0}I+{a_1}A+\cdots +{a_m}{A^m}\)</span>\)</span>如果<span class="arithmatex">\(f(x),g(x)\in F[x]\)</span>,而<span class="arithmatex">\(A\)</span>是一个n阶方阵。令<span class="arithmatex">\(<span class="arithmatex">\(u(x)=f(x)+f(x),v(x)=f(x)g(x)\)</span>\)</span>那么有矩阵的运算规律容易得出<span class="arithmatex">\(<span class="arithmatex">\(u(A)=f(A)+g(A),v(A)=f(A)g(A)\)</span>\)</span></p>
+<p><strong>定义4</strong>  设<span class="arithmatex">\(m\times n\)</span>矩阵<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{m1}&amp;a_{m2}&amp;\cdots&amp;a_{mn}\\
+\end{bmatrix}\)</span>\)</span>把<span class="arithmatex">\(A\)</span>的行变为列所得到的<span class="arithmatex">\(n\times m\)</span>矩阵<span class="arithmatex">\(<span class="arithmatex">\(A^T=\begin{bmatrix}
+a_{11}&amp;a_{21}&amp;\cdots&amp;a_{m1}\\
+a_{12}&amp;a_{22}&amp;\cdots&amp;a_{m2}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{1n}&amp;a_{2n}&amp;\cdots&amp;a_{mn}\\
+\end{bmatrix}\)</span>\)</span>叫作**矩阵<span class="arithmatex">\(A\)</span>的转置</p>
+<p>矩阵的转置满足一下规律：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+(A^T)^T=A\\
+(A+B)^T=A^T+B^T\\
+(AB)^T={B^T}{A^T}\\
+(aA)^T=a{A^T}\end{aligned}\)</span>\)</span></p>
+<blockquote>
+<p>推广：<span class="arithmatex">\(<span class="arithmatex">\(({A_1}+\cdots +{A_n})^T={A_1}^T+\cdots +{A_n}^T\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(({A_1}\cdots {A_n})^T={A_n}^T\cdots {A_1}^T\)</span>\)</span></p>
+</blockquote>
+<h1 id="52">5.2 可逆矩阵  矩阵乘积的行列式<a class="headerlink" href="#52" title="Permanent link">&para;</a></h1>
+<p><strong>定义1</strong>  令<span class="arithmatex">\(A\)</span>是数域<span class="arithmatex">\(F\)</span>上一个n阶矩阵。若是存在<span class="arithmatex">\(F\)</span>上n阶矩阵<span class="arithmatex">\(B\)</span>，使得<span class="arithmatex">\(<span class="arithmatex">\(AB=BA=I\)</span>\)</span>那么<span class="arithmatex">\(A\)</span>叫作一个**可逆矩阵（或非奇异矩阵）**，而<span class="arithmatex">\(B\)</span>叫作<span class="arithmatex">\(A\)</span>的逆矩阵。</p>
+<blockquote>
+<p>若矩阵<span class="arithmatex">\(A\)</span>可逆，那么<span class="arithmatex">\(A\)</span>的逆矩阵由<span class="arithmatex">\(A\)</span>唯一确定。</p>
+</blockquote>
+<p>事实上，设<span class="arithmatex">\(B和C都是A\)</span>的逆矩阵：<span class="arithmatex">\(<span class="arithmatex">\(AB=BA=I,AC=CA=I\)</span>\)</span>
+那么<span class="arithmatex">\(<span class="arithmatex">\(B=BI=B(AC)=(BA)C=IC=C\)</span>\)</span>
+把一个可逆矩阵<span class="arithmatex">\(A\)</span>的唯一逆矩阵用<span class="arithmatex">\(A^{-1}\)</span>来表示</p>
+<blockquote>
+<p>可逆矩阵<span class="arithmatex">\(A\)</span>的逆矩阵<span class="arithmatex">\(A^{-1}\)</span>也可逆，并且<span class="arithmatex">\(<span class="arithmatex">\((A^{-1})^{-1}=A\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(A{A^{-1}}=A^{-1}A=I\)</span>\)</span></p>
+</blockquote>
+<p>**n阶矩阵可逆<span class="arithmatex">\(\iff\)</span>n阶矩阵的最简标准形为<span class="arithmatex">\(I_n\)</span>.</p>
+<p>两个可逆矩阵<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>的乘积<span class="arithmatex">\(AB\)</span>也可逆，并且<span class="arithmatex">\(<span class="arithmatex">\((AB)^{-1}=B^{-1}A^{-1}\)</span>\)</span>
+一般，m个可逆矩阵<span class="arithmatex">\({A_1}+\cdots +{A_m}\)</span>的乘积<span class="arithmatex">\({A_1}\cdots {A_m}\)</span>也可逆，并且<span class="arithmatex">\(<span class="arithmatex">\(({A_1}\cdots {A_m})^{-1}={A_m}^{-1}\cdots {A_2}^{-1}{A_1}^{-1}\)</span>\)</span>
+可逆矩阵<span class="arithmatex">\(A\)</span>的转置<span class="arithmatex">\(A^T\)</span>也可逆，并且<span class="arithmatex">\(<span class="arithmatex">\((A^T)^{-1}=(A^{-1})^T\)</span>\)</span>
+<strong>一个n阶矩阵未必可逆</strong>。例如：<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{bmatrix}
+a_{11}&amp;a_{12}\\
+0&amp;0\end{bmatrix}\)</span>\)</span>
+把一下三种方阵叫作**初等矩阵**：
+<span class="arithmatex">\(<span class="arithmatex">\(P_{ij}=\begin{bmatrix}
+&amp;1\\
+&amp;&amp;\ddots \\
+&amp;&amp;&amp;1&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp;&amp;0&amp;&amp;\cdots &amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;\vdots &amp;&amp;\ddots&amp;&amp;\vdots\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;1&amp;&amp;\cdots &amp;&amp;0\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\ddots \\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1
+\end{bmatrix}\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(D_i(k)=\begin{bmatrix}
+1\\
+&amp;\ddots \\
+&amp;&amp;1\\
+&amp;&amp;&amp;k\\
+&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;\ddots\\
+&amp;&amp;&amp;&amp;&amp;&amp;1
+\end{bmatrix}\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(T_{ij}(k)=\begin{bmatrix}
+1\\
+&amp;\ddots \\
+&amp;&amp;1&amp;\cdots&amp;k\\
+&amp;&amp;&amp;\ddots&amp;\vdots\\
+&amp;&amp;&amp;&amp;1\\
+&amp;&amp;&amp;&amp;&amp;\ddots \\
+&amp;&amp;&amp;&amp;&amp;&amp;1
+\end{bmatrix}\)</span>\)</span>&gt;注：没有注明的元素在主对角线上的都是1，在其他位置的都是0.</p>
+<p><strong>初等矩阵都是可逆的，并且它们的逆矩阵仍是初等矩阵</strong>。<span class="arithmatex">\(<span class="arithmatex">\({P_{ij}}^{-1}=P_{ij},D_i(k)^{-1}=D_i(\frac 1 k),T_{ij}(k)^{-1}=T_{ij}(-k)\)</span>\)</span></p>
+<p><strong>引理5.2.1</strong>  **设对矩阵<span class="arithmatex">\(A\)</span>施行一个初等变换后，得到矩阵<span class="arithmatex">\(\overline A\)</span>,那么<span class="arithmatex">\(A\)</span>可逆的充要条件是<span class="arithmatex">\(\overline A\)</span>可逆</p>
+<p><strong>定理5.2.1</strong>  一个<span class="arithmatex">\(m\times n 矩阵A\)</span>总可以通过初等变换化为一下形式的一个矩阵：<span class="arithmatex">\(<span class="arithmatex">\(\overline A=\begin{bmatrix}
+I_r&amp;O_{r,n-r}\\
+O_{m-r,r}&amp;O_{m-r,n-r}
+\end{bmatrix}\)</span>\)</span>这里<span class="arithmatex">\(I_r\)</span>是n阶单位矩阵m,<span class="arithmatex">\(O_{st}\)</span>表示<span class="arithmatex">\(s\times t\)</span>的零矩阵，r等于<span class="arithmatex">\(A\)</span>的秩。</p>
+<blockquote>
+<p>特别.当<span class="arithmatex">\(A\)</span>是一个n阶矩阵时.上面的矩阵<span class="arithmatex">\(\overline A\)</span>是一个**对角矩阵**（即主对角线以外的元素都是0的矩阵）</p>
+</blockquote>
+<p><strong>定理5.2.2</strong>  n阶矩阵<span class="arithmatex">\(A\)</span>可逆，当且仅当它可以写成初等矩阵的乘积。</p>
+<p><strong>定理5.2.3</strong>  n阶矩阵<span class="arithmatex">\(A\)</span>可逆当且仅当<span class="arithmatex">\(A\)</span>的秩等于n。</p>
+<p>把n阶矩阵<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nn}\\
+\end{bmatrix}\)</span>\)</span>的**唯一的n阶子式**<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{vmatrix}
+a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nn}\\
+\end{vmatrix}\)</span>\)</span>叫作叫作<span class="arithmatex">\(A\)</span>的行列式，记作<span class="arithmatex">\(detA\)</span>。</p>
+<blockquote>
+<p><span class="arithmatex">\(A\)</span>的秩等于n的充要条件是<span class="arithmatex">\(detA\neq 0\)</span></p>
+</blockquote>
+<p><strong>定理5.2.4</strong>  n阶矩阵<span class="arithmatex">\(A\)</span>可逆，当且仅当它的行列式<span class="arithmatex">\(detA/neq 0\)</span></p>
+<p>求逆矩阵的方法：
+* 法1. 在通过初等变换把可逆矩阵<span class="arithmatex">\(A\)</span>化为单位矩阵<span class="arithmatex">\(I\)</span>时，对单位矩阵<span class="arithmatex">\(I\)</span>施行同样的初等变换。就得到<span class="arithmatex">\(A\)</span>的逆矩阵<span class="arithmatex">\(A^{-1}\)</span>.
+* 法2. 设n阶矩阵<span class="arithmatex">\(<span class="arithmatex">\(A=\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nn}\\
+\end{bmatrix}\)</span>\)</span>由定理3.4.2和3.4.3，一下等式成立：<span class="arithmatex">\(<span class="arithmatex">\(a_{i1}A_{j1}+a_{i2}A_{j12}+\cdots a_{in}A_{jn}=\begin{cases}
+detA,若i=j,\\
+0,若i \neq j \end{cases}\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(a_{1i}A_{1j}+a_{2i}A_{2j}+\cdots a_{ni}A_{nj}=\begin{cases}
+detA,若i=j,\\
+0,若i \neq j \end{cases}\)</span>\)</span>这里<span class="arithmatex">\(A_{st}\)</span>时行列式<span class="arithmatex">\(detA\)</span>中元素<span class="arithmatex">\(a_{st}\)</span>的代数余子式，由此容易看出，若是令<span class="arithmatex">\(<span class="arithmatex">\(A^*=\begin{bmatrix}
+A_{11}&amp;A_{12}&amp;\cdots&amp;A_{1n}\\
+A_{21}&amp;A_{22}&amp;\cdots&amp;A_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\A_{n1}&amp;A_{n2}&amp;\cdots&amp;A_{nn}\\
+\end{bmatrix}\)</span>\)</span>那么<span class="arithmatex">\(<span class="arithmatex">\(AA^*=A^*A=A^*=\begin{bmatrix}
+detA&amp;0&amp;\cdots&amp;0\\
+0&amp;detA&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\ddots&amp;
+\vdots&amp;\\0&amp;0&amp;\cdots&amp;detA\\
+\end{bmatrix}=detAI\)</span>\)</span></p>
+<blockquote>
+<p>把矩阵<span class="arithmatex">\(A^*\)</span>叫作叫作<span class="arithmatex">\(A\)</span>的**伴随矩阵**。</p>
+</blockquote>
+<div class="arithmatex">\[A^{-1}={\frac 1 {detA}}A^*\]</div>
+<p><strong>引理5.2.2</strong>  一个n阶矩阵<span class="arithmatex">\(A\)</span>总可以通过第三种行和列的初等变换化为一个对角矩阵<span class="arithmatex">\(<span class="arithmatex">\(\overline A=\begin{bmatrix}
+d_1&amp;&amp;&amp;0\\
+&amp;d_2\\
+&amp;&amp;\ddots \\
+0&amp;&amp;&amp;d_n \end{bmatrix}\)</span>\)</span>并且<span class="arithmatex">\(detA=det \overline A=d_1d_2\cdots d_n\)</span>.</p>
+<p><strong>定理5.2.5</strong>  设<span class="arithmatex">\(A,B\)</span>是任意两个n阶矩阵。那么<span class="arithmatex">\(<span class="arithmatex">\(det(AB)=detA\cdot detB\)</span>\)</span>
+由行列式的性质得<span class="arithmatex">\(<span class="arithmatex">\(det(AB)=d_1d_2\cdots d_n=detA detB\)</span>\)</span></p>
+<p><strong>定理5.2.6</strong>  两个矩阵乘积的秩不大于每一因子的秩。特别，当有一个因子是可逆矩阵时，乘积的秩等于另一因子的秩。</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.1 一元多项式的定义和运算" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                2.1 一元多项式的定义和运算
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" class="md-footer__link md-footer__link--next" aria-label="下一页: 4.1消元法" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                4.1消元法
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2023 x-inker
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+        <script src="../../stylesheet/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

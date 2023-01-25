@@ -1,0 +1,944 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/">
+      
+      
+        <link rel="next" href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>1. 函数极限概念 - x-inker`s notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheet/mkdocs_extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="x-inker`s notes" class="md-header__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            x-inker`s notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. 函数极限概念
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-tabs__link md-tabs__link--active">
+        数学分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-tabs__link">
+        英语口语
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-tabs__link">
+        高等代数
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="x-inker`s notes" class="md-nav__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    x-inker`s notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          数学分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数学分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          数学分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        1. 实数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        1. 函数极限概念
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90/" class="md-nav__link">
+        1.数列极限概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AF%BC%E6%95%B0%E5%92%8C%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        1. 导数的概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/" class="md-nav__link">
+        1. 连续性概念
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          英语口语
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="英语口语" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          英语口语
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-nav__link">
+        Unit 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%202/" class="md-nav__link">
+        Unit 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%203/" class="md-nav__link">
+        Unit 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%204/" class="md-nav__link">
+        Unit 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%205/" class="md-nav__link">
+        Unit 5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          高等代数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等代数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高等代数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        整除性质
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        1.1 集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%A1%8C%E5%88%97%E5%BC%8F/" class="md-nav__link">
+        3.1 线性方程组和行列式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-nav__link">
+        2.1 一元多项式的定义和运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        5.1 矩阵的运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" class="md-nav__link">
+        4.1消元法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/edit/master/docs/数学分析/第三章 函数极限.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/raw/master/docs/数学分析/第三章 函数极限.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+
+<h1 id="1">1. 函数极限概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>一，x趋于<span class="arithmatex">\(\infty\)</span>时函数的极限
+<strong>定义1</strong> 设<span class="arithmatex">\(f\)</span>为定义在<span class="arithmatex">\([a,+\infty)\)</span>上的函数，<span class="arithmatex">\(A\)</span>为定数。若对任给的<span class="arithmatex">\(\epsilon &gt; 0\)</span>,存在正数<span class="arithmatex">\(M(\geqslant a)\)</span>使得当<span class="arithmatex">\(x &gt; M\)</span>时，有<span class="arithmatex">\(<span class="arithmatex">\(\vert f(x)-A \vert&lt;\epsilon,\)</span>\)</span>则称**函数<span class="arithmatex">\(f\)</span>当x趋于<span class="arithmatex">\(+\infty\)</span>时以<span class="arithmatex">\(A\)</span>为极限**，记作<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to+\infty}f(x)=A,或f(x)\to A(x\to +\infty)\)</span>\)</span></p>
+<blockquote>
+<p>注：<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to\infty}f(x)=A\iff\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)=A\)</span>\)</span></p>
+</blockquote>
+<p>二，x趋于<span class="arithmatex">\(x_0\)</span>时函数的极限
+<strong>定义2（函数极限的<span class="arithmatex">\(\epsilon -\delta\)</span>定义）</strong>   设函数<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>的某个空心邻域<span class="arithmatex">\(U^o(x_0;\delta^<code>)$内有定义，$A$为定数。若对任给的$\epsilon &gt; 0$,存在正数$\delta(&lt;\delta^</code>)\)</span>,使得当<span class="arithmatex">\(0&lt;\vert x-x_0 \vert &lt;\delta\)</span>时，有<span class="arithmatex">\(<span class="arithmatex">\(\vert f(x)-A \vert&lt;\epsilon,\)</span>\)</span>则称**函数<span class="arithmatex">\(f\)</span>当x趋于<span class="arithmatex">\(x_0\)</span>时以<span class="arithmatex">\(A\)</span>为极限，记作<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}f(x)=A,或f(x)\to A(x\to x_0)\)</span>\)</span></p>
+<ul>
+<li>定义2中的正数<span class="arithmatex">\(\delta\)</span>，相当于数列极限的<span class="arithmatex">\(\epsilon-N\)</span>定义中的<span class="arithmatex">\(N\)</span>，它依赖于<span class="arithmatex">\(\epsilon\)</span>，但也不是由<span class="arithmatex">\(\epsilon\)</span>来唯一确定的。</li>
+<li>定义中只要求函数<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(x_0\)</span>的某一空心邻域上由定义，而一般不考虑<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>除的函数值是否由定义，或者它的取值。</li>
+<li>定义2中的不等式<span class="arithmatex">\(0&lt;\vert x-x_0 \vert &lt;\delta\iff x \in U^o(x_0;\delta^`)\)</span>,而不等式<span class="arithmatex">\(\vert f(x)-A \vert&lt;\epsilon\iff f(x)\in U(A;\epsilon)\)</span>.<blockquote>
+<p><span class="arithmatex">\(\epsilon -\delta\)</span>定义又可改写成
+    任给<span class="arithmatex">\(\epsilon &gt; 0\)</span>,存在<span class="arithmatex">\(\delta &gt; 0\)</span>,使得对一切<span class="arithmatex">\(x \in U^o(x_0;\delta^<code>)$,有$f(x)\in U(A;\epsilon)$
+或者更简单地表述为
+  任给$\epsilon &gt; 0$,存在$\delta &gt; 0$,使得$f(U^o(x_0;\delta^</code>))\subset U(A;\epsilon)\)</span>.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>定义3</strong>  设函数<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\({U^o}_+(x_0;\delta^<code>)或({U^o}_-(x_0;\delta^</code>))\)</span>上有定义，<span class="arithmatex">\(A\)</span>为定数。若对任给的<span class="arithmatex">\(\epsilon &gt; 0\)</span>,存在正数<span class="arithmatex">\(\delta(&lt;\delta^`)\)</span>，使得当<span class="arithmatex">\(x_0&lt;x&lt;x_0+\delta(或x_0-\delta &lt;x&lt;x_0)\)</span>时，有<span class="arithmatex">\(<span class="arithmatex">\(\vert f(x)-A \vert&lt;\epsilon,\)</span>\)</span>则称数<span class="arithmatex">\(A\)</span>为函数<span class="arithmatex">\(f\)</span>当x趋于<span class="arithmatex">\({x_0}^+(或{x_0}^-)\)</span>时的右（左）极限，记作<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to {x_0}^+}f(x)=A(\lim_{x\to {x_0}^-}f(x)=A)\)</span>\)</span>或<span class="arithmatex">\(<span class="arithmatex">\(f(x)\to A(x\to {x_0}^+)(f(x)\to A(x\to {x_0}^-))\)</span>\)</span>
+  右极限和左极限统称为**单侧极限**。
+      <span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>的右极限与左极限右分别记为<span class="arithmatex">\(<span class="arithmatex">\(f(x_0+0)=\lim_{x\to{x_0}^+}f(x)与f(x_0-0)=\lim_{x\to{x_0}^-}f(x)\)</span>\)</span>
+<strong>定理3.1</strong>  <span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}f(x)=A\iff \lim_{x\to{x_0}^+}f(x)=\lim_{x\to{x_0}^-}f(x)=A\)</span>\)</span></p>
+<h1 id="2">2. 函数极限的性质<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p><strong>定理3.2</strong>（唯一性）  若极限<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>存在，则此极限是唯一的。
+<strong>定理3.3</strong>（局部有界性）  若<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>存在，则<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(x_0\)</span>的某空心领域<span class="arithmatex">\(U^0(x_0)\)</span>上有界
+<strong>定理3.4</strong>（局部保号性）  若存在<span class="arithmatex">\(\lim_{x\to x_0}f(x)=A\)</span>（或&lt;0)，则对任何正数r&lt;A（或r&lt;-A）,存在<span class="arithmatex">\(U^0(x_0)\)</span>，使得对一切<span class="arithmatex">\(x\in U^0(x_0)\)</span>,有<span class="arithmatex">\(<span class="arithmatex">\(f(x)&gt;r&gt;0(或f(x)&lt;-r&lt;0)\)</span>\)</span></p>
+<blockquote>
+<p>注：应用局部保号性时，常取<span class="arithmatex">\(r=\frac A 2\)</span>。</p>
+</blockquote>
+<p><strong>定理3.5</strong>（保不等式性）  设<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>与<span class="arithmatex">\(\lim_{x\to x_0}g(x)\)</span>都存在，且存在某领域<span class="arithmatex">\(U^o(x_0;\delta^<code>)$上有$f(x)\leqslant g(x)$，则$$\lim_{x\to x_0}f(x)\leqslant \lim_{x\to x_0}g(x)$$
+**定理3.6**（迫敛性）  设 $\lim_{x\to x_0}f(x)=\lim_{x\to x_0}g(x)=A$，且在某领域$U^o(x_0;\delta^</code>)\)</span>上有<span class="arithmatex">\(<span class="arithmatex">\(f(x)\leqslant h(x)\leqslant g(x)\)</span>\)</span>则<span class="arithmatex">\(\lim_{x\to x_0}h(x)=A\)</span>.
+<strong>定理3.7</strong>（四则运算法则）  若<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>与<span class="arithmatex">\(\lim_{x\to x_0}g(x)\)</span>都存在，则函数<span class="arithmatex">\(f\pm g,f\cdot g\)</span>当<span class="arithmatex">\(x\to x_0\)</span>时极限也存在，且<span class="arithmatex">\(<span class="arithmatex">\(1) \lim_{x\to x_0}[f(x)\pm g(x)]=\lim_{x\to x_0}f(x)\pm \lim_{x\to x_0}g(x)\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(2) \lim_{x\to x_0}[f(x)g(x)]=\lim_{x\to x_0}f(x)\cdot \lim_{x\to x_0}g(x)\)</span>\)</span>又若<span class="arithmatex">\(\lim_{x\to x_0}g(x)\neq 0\)</span>,则<span class="arithmatex">\(f/g\)</span>当<span class="arithmatex">\(x\to x_0\)</span>时极限也存在，且<span class="arithmatex">\(<span class="arithmatex">\(3)\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to x_0}f(x)/\lim_{x\to x_0}g(x)\)</span>\)</span></p>
+<h1 id="3">3. 函数极限存在的条件<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p><strong>定理3.8</strong>（归结原则）  设函数<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(U^o(x_0;\delta^<code>)$上有定义。$\lim_{x\to x_0}f(x)$存在的**充要条件**是：对于任何含于$U^o(x_0;\delta^</code>)\)</span>且以<span class="arithmatex">\(x_0\)</span>为极限的数列<span class="arithmatex">\({x_n}\)</span>,极限<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>都存在且相等。</p>
+<blockquote>
+<p>注1 归结原则也可简述为:<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}f(x)=A\iff 对任何x\to x_0(n\to \infty)有\lim_{x\to \infty}f(x_n)=A\)</span>\)</span>注2 若可以找到一个以<span class="arithmatex">\(x_0\)</span>为极限的数列<span class="arithmatex">\({x_n}\)</span>，使<span class="arithmatex">\(\lim_{x\to \infty}f(x_n)\)</span>不存在，或找到两个都以<span class="arithmatex">\(x_0\)</span>为极限的数列<span class="arithmatex">\(\{{x^<code>}_n\}与\{{x^{``}}_n\}$，使$\lim_{x\to \infty}f({x^</code>}_n)与\lim_{x\to \infty}f({x^{``}}_n)\)</span>都存在而不相等，则<span class="arithmatex">\(\lim_{x\to x_0}f(x)\)</span>不存在。</p>
+</blockquote>
+<p><strong>定理3.9</strong>  设函数<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>的某空心邻域<span class="arithmatex">\({U^o}_+(x_0)\)</span>有定义。<span class="arithmatex">\(\lim_{x\to{x_0}^+}f(x)=\)</span>的**充要条件**是：对任何以<span class="arithmatex">\(x_0\)</span>为极限的递减数列<span class="arithmatex">\(\{x_n\}\subset{U^o}_+(x_0)\)</span>,有<span class="arithmatex">\(\lim_{x\to \infty}f(x_n)=A\)</span>.</p>
+<p><strong>定理3.10</strong>  设<span class="arithmatex">\(f\)</span>为定义在<span class="arithmatex">\({U^o}_+(x_0)\)</span>上的单调有界函数，则右极限<span class="arithmatex">\(\lim_{x\to{x_0}^+}f(x)\)</span>存在</p>
+<p><strong>定理3.11</strong>（柯西准则）  设函数<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(U^o(x_0;\delta^<code>)$上有定义。$\lim_{x\to x_0}f(x)$存在的**充要条件**是：任给的$\epsilon &gt; 0$,存在正数$\delta(&lt;\delta^</code>)\)</span>，使得对任何<span class="arithmatex">\(x^<code>,x^``\in U^o(x_0;\delta^</code>)\)</span>，有<span class="arithmatex">\(\vert f(x^`)-f(x^``) \vert &lt; \epsilon\)</span>.</p>
+<h1 id="4">4. 两个重要的极限<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<div class="arithmatex">\[\lim_{x\to 0}\frac {\sin x} x=1\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\lim_{x\to0}\frac{1-\cos x} {x^2}=\frac 1 2\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\lim_{x\to\infty}(1+\frac 1 x)^x=e\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\lim_{x\to0}(1+ x)^{\frac 1 x}=e\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\lim_{x\to0}\frac {\ln {(1+x)}}{x}=1\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\lim_{x\to0}\frac {e^x-1}x=1\]</div>
+</li>
+</ul>
+<h1 id="5">5. 无穷小量和无穷大量<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<p><strong>定义1</strong>  设<span class="arithmatex">\(f\)</span>在某<span class="arithmatex">\(U^o(x_0)\)</span>上有定义，若<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}f(x)=0\)</span>\)</span>则称<span class="arithmatex">\(f\)</span>为**当<span class="arithmatex">\(x\to x_0\)</span>时的无穷小量**.
+若函数<span class="arithmatex">\(g\)</span>在某<span class="arithmatex">\(U^o(x_0)\)</span>上有界，则称<span class="arithmatex">\(g\)</span>为**当<span class="arithmatex">\(x\to x_0\)</span>时的有界量**。</p>
+<p>设当<span class="arithmatex">\(x\to x_0\)</span>时，<span class="arithmatex">\(f与g\)</span>均为无穷小量。
+* 1.若<span class="arithmatex">\(\lim_{x\to x_0}\frac {f(x)}{g(x)}=0\)</span>，则称当<span class="arithmatex">\(x\to x_0\)</span>时<span class="arithmatex">\(f\)</span>为<span class="arithmatex">\(g\)</span>的**高阶无穷小量**，或称<span class="arithmatex">\(g\)</span>为<span class="arithmatex">\(f\)</span>的**低阶无穷小量**，记作<span class="arithmatex">\(<span class="arithmatex">\(f(x)=o(g(x))(x\to x_0)\)</span>\)</span>特别地，<span class="arithmatex">\(f\)</span>为当<span class="arithmatex">\(x\to x_0\)</span>时的无穷小量记作<span class="arithmatex">\(<span class="arithmatex">\(f(x)=o(1)(x\to x_0)\)</span>\)</span>
+* 2.若存在正数K和L，使得在某<span class="arithmatex">\(U^o(x_0)\)</span>上有<span class="arithmatex">\(<span class="arithmatex">\(K\leqslant \vert \frac {f(x)}{g(x)} \vert \leqslant L\)</span>\)</span>则称<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>为当<span class="arithmatex">\(x\to x_0\)</span>时的**同阶无穷小量**。特别当<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}\frac {f(x)}{g(x)}=c\neq 0\)</span>\)</span>时，<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>必为同阶无穷小量。
+  若无穷小量<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>满足关系式<span class="arithmatex">\(<span class="arithmatex">\(\vert \frac {f(x)}{g(x)} \vert \leqslant L,x\in U^o(x_0)\)</span>\)</span>则记作<span class="arithmatex">\(<span class="arithmatex">\(f(x)=O(g(x))(x\to x_0)\)</span>\)</span>特别地，若<span class="arithmatex">\(f\)</span>在某<span class="arithmatex">\(U^o(x_0)\)</span>上有界，则记为<span class="arithmatex">\(<span class="arithmatex">\(f(x)=O(1)(x\to x_0)\)</span>\)</span></p>
+<blockquote>
+<p>注：本段中的等式<span class="arithmatex">\(f(x)=o(g(x))(x\to x_0)与f(x)=O(g(x))(x\to x_0\)</span>等，与通常等式的含义时不同的。这里等**式左边是一个函数，右边是一个函数类，而中间的等号的含义是“属于”**。</p>
+</blockquote>
+<ul>
+<li>
+<ol>
+<li>若<span class="arithmatex">\(\lim_{x\to x_0}\frac {f(x)}{g(x)}=1\)</span>，则称<span class="arithmatex">\(f\)</span>与<span class="arithmatex">\(g\)</span>是当<span class="arithmatex">\(x\to x_0\)</span>时的**等价无穷小量**，记作<span class="arithmatex">\(<span class="arithmatex">\(f(x)\sim  g(x)(x\to x_0)\)</span>\)</span></li>
+</ol>
+</li>
+</ul>
+<p><strong>定理3.12</strong>  设函数<span class="arithmatex">\(f,g,h\)</span>在<span class="arithmatex">\(U^o(x_0)\)</span>上有定义，且有<span class="arithmatex">\(<span class="arithmatex">\(f(x)\sim  g(x)(x\to x_0)\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\((i)若\lim_{x\to x_0}f(x)h(x)=A，则\lim_{x\to x_0}g(x)h(x)=A;\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\((ii)若\lim_{x\to x_0}\frac {h(x)}{f(x)}=B,则\lim_{x\to x_0}\frac {h(x)}{g(x)}=B\)</span>\)</span></p>
+<blockquote>
+<p>注：在利用等价无穷小量代换求极限时，应注意：只有对所求极限式中**相乘或相除**的因式才能利用等价无穷小量来替代。</p>
+</blockquote>
+<p><strong>定义2</strong>  设<span class="arithmatex">\(f\)</span>在某<span class="arithmatex">\(U^o(x_0)\)</span>上有定义，若对任给的<span class="arithmatex">\(G&gt;0,存在\delta&gt;0\)</span>，使得当<span class="arithmatex">\(x \in U^o(x_0;\delta^`)(\subset U^o(x_0)\)</span>时，有<span class="arithmatex">\(<span class="arithmatex">\(\vert f(x)\vert &gt;G\)</span>\)</span>
+则称函数<span class="arithmatex">\(f\)</span>当<span class="arithmatex">\(x\to x_0\)</span>时有**非正常极限<span class="arithmatex">\(\infty\)</span>，记作<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}f(x)=\infty\)</span>\)</span></p>
+<p><strong>定义3</strong>  对于自变量x的某种趋向（或<span class="arithmatex">\(n\to \infty\)</span>时），所有以<span class="arithmatex">\(\infty,+\infty或-\infty\)</span>为非正常极限的函数（包括数列），都称为**无穷大量**。</p>
+<blockquote>
+<p>注1：无穷大量不是很大的数，而是具有非正常极限的函数
+注2：若<span class="arithmatex">\(f\)</span>为<span class="arithmatex">\(x\to x_0\)</span>的无穷大量，则易见<span class="arithmatex">\(f\)</span>为<span class="arithmatex">\(U^o(x_0)\)</span>上的无界函数。<strong>但无界函数不一定是无穷大量</strong>。</p>
+</blockquote>
+<p><strong>定理3.13</strong><br />
+（i）设<span class="arithmatex">\(f\)</span>在某<span class="arithmatex">\(U^o(x_0)\)</span>上有定义且不等于0.若<span class="arithmatex">\(f\)</span>为当<span class="arithmatex">\(x\to x_0\)</span>时的无穷小量，则<span class="arithmatex">\(1 \over f\)</span>为<span class="arithmatex">\(x\to x_0\)</span>时的无穷大量。
+（ii）若<span class="arithmatex">\(g\)</span>为当<span class="arithmatex">\(x\to x_0\)</span>时的无穷大量,则<span class="arithmatex">\(1 \over g\)</span>为<span class="arithmatex">\(x\to x_0\)</span>时的无穷小量。</p>
+<p><strong>曲线的渐近线</strong>
+<strong>定义4</strong>  若曲线C上的动点P沿着曲线无线地远离原点时，点P与某定直线L的距离趋近于0，则称直线L为曲线C的**渐近线**。
+    <strong>斜渐近线y=kx+b</strong> **垂直渐近线<span class="arithmatex">\(x=x_0\)</span> </p>
+<p>现假设y=f(x)有斜渐近线y=kx+b.曲线上动点P到渐近线的距离为<span class="arithmatex">\(<span class="arithmatex">\(\vert PN \vert=\vert PM\cos \alpha \vert=\vert f(x)-(kx+b)\vert \frac 1 {\sqrt {1+k^2}}\)</span>\)</span>按渐近线的定义，当<span class="arithmatex">\(x\to +\infty\)</span>时，<span class="arithmatex">\(\vert PN\vert \to 0\)</span>，即有<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to +\infty}[f(x)-(kx+b)]=0\)</span>\)</span>或<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to +\infty}[f(x)-kx]=b\tag1\)</span>\)</span>又由<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to +\infty}[\frac{f(x)}x-k]=\lim_{x\to +\infty}\frac 1 x[f(x)-kx]=0\cdot b=0\)</span>\)</span>得到<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to +\infty}\frac{f(x)}x=k\tag2\)</span>\)</span>由上面的讨论可知，若曲线y=f(x)有斜渐近线y=kx+b,则常函数k与b可相继有（1）式和（2）式来确定；反之，若由（2），（1）两式求得k与b，则可知<span class="arithmatex">\(\vert PN\vert \to 0(x\to \infty)\)</span>，从而**y=kx+b为曲线t=f(x)的渐近线**。</p>
+<p>若函数<span class="arithmatex">\(f\)</span>满足<span class="arithmatex">\(<span class="arithmatex">\(\lim_{x\to x_0}=\infty\)</span>\)</span>则按渐近线的定义可知，曲线y=f(x)有垂直于x轴的渐近线<span class="arithmatex">\(x=x_0\)</span>，称为**垂直渐近线**。</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 1. 实数" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                1. 实数
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90/" class="md-footer__link md-footer__link--next" aria-label="下一页: 1.数列极限概念" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                1.数列极限概念
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2023 x-inker
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+        <script src="../../stylesheet/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,971 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%A1%8C%E5%88%97%E5%BC%8F/">
+      
+      
+        <link rel="next" href="../%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E7%9F%A9%E9%98%B5/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>2.1 一元多项式的定义和运算 - x-inker`s notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheet/mkdocs_extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#21" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="x-inker`s notes" class="md-header__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            x-inker`s notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.1 一元多项式的定义和运算
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-tabs__link">
+        数学分析
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-tabs__link">
+        英语口语
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-tabs__link md-tabs__link--active">
+        高等代数
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="x-inker`s notes" class="md-nav__button md-logo" aria-label="x-inker`s notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    x-inker`s notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Italink/ModernGraphicsEngineGuide" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          数学分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数学分析" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          数学分析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%AE%9E%E6%95%B0%E9%9B%86%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        1. 实数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90/" class="md-nav__link">
+        1. 函数极限概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90/" class="md-nav__link">
+        1.数列极限概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AF%BC%E6%95%B0%E5%92%8C%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        1. 导数的概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/" class="md-nav__link">
+        1. 连续性概念
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          英语口语
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="英语口语" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          英语口语
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%201/" class="md-nav__link">
+        Unit 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%202/" class="md-nav__link">
+        Unit 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%203/" class="md-nav__link">
+        Unit 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%204/" class="md-nav__link">
+        Unit 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/Unit%205/" class="md-nav__link">
+        Unit 5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
+          高等代数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等代数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高等代数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        整除性质
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        1.1 集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%A1%8C%E5%88%97%E5%BC%8F/" class="md-nav__link">
+        3.1 线性方程组和行列式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        2.1 一元多项式的定义和运算
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        5.1 矩阵的运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" class="md-nav__link">
+        4.1消元法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/edit/master/docs/高等代数/第二章 多项式.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Italink/ModernGraphicsEngineGuide/raw/master/docs/高等代数/第二章 多项式.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+
+<h1 id="21">2.1 一元多项式的定义和运算<a class="headerlink" href="#21" title="Permanent link">&para;</a></h1>
+<p><strong>定义1</strong>  数环R上一个文字x的多项式或一元多项式指的是形式表达式<span class="arithmatex">\(<span class="arithmatex">\(a_0+a_1x+a_2x^2+\cdots +a_nx^n,\tag1\)</span>\)</span>这里n是非负整数而<span class="arithmatex">\(a_0,a_1,a_2,\cdots ,a_n\)</span>都是R中的数
+    在多项式（1）中，<span class="arithmatex">\(a_0\)</span>叫作**零次项**或**常数项**，<span class="arithmatex">\(a_1x\)</span>叫作**一次项**，一般<span class="arithmatex">\(a_ix^i\)</span>叫作i次项，<span class="arithmatex">\(a_i\)</span>叫作i次项的**系数**。
+一元多项式常用符号<span class="arithmatex">\(f(x),g(x),\cdots ,\)</span>来表示</p>
+<p><strong>定义2</strong>  若是数环R上两个一元多项式<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>有完全相同的项，或者只差一些系数为零的项，那么<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>就说是相等<span class="arithmatex">\(<span class="arithmatex">\(f(x)=g(x)\)</span>\)</span></p>
+<blockquote>
+<p>一个数环R上的系数不全为零的多项式总可以改写成<span class="arithmatex">\(<span class="arithmatex">\(a_0+a_1x+a_2x^2+\cdots +a_nx^n,a_n\neq0\tag2\)</span>\)</span>的形式，并且这种写法是**唯一**的</p>
+</blockquote>
+<p><strong>定义3</strong>  <span class="arithmatex">\(a_nx^n\)</span>叫作多项式（2）的最高次项，非负整数n叫作多项式（2）的次数
+    系数全为零的多项式**没有次数**，叫作**零多项式**，记为0.
+    最高次项是零的多项式<span class="arithmatex">\(a(a\neq0)\)</span>的**次数为零**，叫作**零次多项式**。</p>
+<p>多项式的加法和乘法满足一下运算规则：
+* 加法交换律
+* 加法结合律
+* 乘法交换律
+* 乘法结合律
+* 乘法对加法的分配律</p>
+<p>有时把一个多项式按“降幂”排列<span class="arithmatex">\(<span class="arithmatex">\(a_0x^n+a_1x+{n-1}+\cdots +a_{n-1}x+a_n\tag3\)</span>\)</span>
+<strong>定理2.1.1</strong>  设<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>是数环R上两个多项式，并且<span class="arithmatex">\(f(x)\neq0,g(x)\neq0\)</span>,那么
+(i) 当<span class="arithmatex">\(f(x)+g(x)\neq0\)</span>时，<span class="arithmatex">\(\partial^\circ(f(x)+g(x))\leqslant \max(\partial^\circ f(x),\partial^\circ g(x))\)</span>   <br />
+(ii)<span class="arithmatex">\(\partial^\circ (f(x)g(x))=\partial^\circ(f(x))+\partial^\circ(g(x))\)</span>.</p>
+<p><strong>推论2.1.1</strong>  <span class="arithmatex">\(f(x)g(x)=0\)</span>当且仅当<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>中至少有一个是零多项式
+<strong>推论2.1.2</strong>  若<span class="arithmatex">\(f(x)g(x)=f(x)h(x),且f(x)\neq 0\)</span>，那么<span class="arithmatex">\(g(x)=h(x)\)</span>。
+    由于推论2.1.2成立，多项式的乘法适合**消去律**</p>
+<blockquote>
+<p>用<span class="arithmatex">\(R[x]\)</span>来表示数环R上一个文字x的多项式的全体。并且把在其中如上定义了加法和乘法运算的<span class="arithmatex">\(R[x]\)</span>叫作**数环R上的一元多项式环**。</p>
+</blockquote>
+<h1 id="22">2.2 多项式的整除性<a class="headerlink" href="#22" title="Permanent link">&para;</a></h1>
+<p>设<span class="arithmatex">\(F\)</span>是一个数域。<span class="arithmatex">\(F[x]是F\)</span>上一元多项式环
+<strong>定义</strong> 令<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>是数域<span class="arithmatex">\(F\)</span>上多项式环<span class="arithmatex">\(F[x]\)</span>的两个多项式。如果存在<span class="arithmatex">\(F[x]\)</span>的多项式<span class="arithmatex">\(h(x)\)</span>，使<span class="arithmatex">\(<span class="arithmatex">\(g(x)=f(x)h(x)\)</span>\)</span>则称，<span class="arithmatex">\(f(x)整除g(x)\)</span>
+    用符号<span class="arithmatex">\(f(x)|g(x)\)</span>表示<span class="arithmatex">\(f(x)整除g(x)\)</span>，用符号<span class="arithmatex">\(f(x)\nmid g(x)\)</span>表示<span class="arithmatex">\(f(x)不能整除g(x)\)</span>。
+当<span class="arithmatex">\(f(x)|g(x)\)</span>时，f(x)说是g(x)的一个因式。</p>
+<p><strong>多项式整除的一些基本性质</strong>：
+1. 如果<span class="arithmatex">\(f(x)|g(x)\)</span>，<span class="arithmatex">\(g(x)|h(x)\)</span>，那么<span class="arithmatex">\(f(x)|h(x)\)</span>
+2. 如果<span class="arithmatex">\(h(x)|f(x)\)</span>，<span class="arithmatex">\(h(x)|g(x)\)</span>,那么<span class="arithmatex">\(h(x)|f(x)\pm g(x)\)</span>
+3. 如果<span class="arithmatex">\(h(x)|f(x)\)</span>，那么对于<span class="arithmatex">\(F[x]\)</span>中任意多项式<span class="arithmatex">\(g(x)\)</span>来说，<span class="arithmatex">\(h(x)|f(x)g(x)\)</span>
+4. 如果<span class="arithmatex">\(h(x)|f_i(x),i=1,2,\cdots ,t,\)</span>那么对于<span class="arithmatex">\(F[x]\)</span>中任意<span class="arithmatex">\(g_i(x),i=1,2,\cdots ,t\)</span>.<span class="arithmatex">\(<span class="arithmatex">\(h(x)|(f_1(x)g_1(x)\pm f_2(x)g_2(x)\pm \cdots \pm f_t(x)g_t(x))\)</span>\)</span>
+5. 零次多项式，也就是<span class="arithmatex">\(F\)</span>中不等于零的数，整除任一多项式。
+6. 每一个多项式<span class="arithmatex">\(f(x)\)</span>都能被<span class="arithmatex">\(cf(x)\)</span>整除，c是<span class="arithmatex">\(F\)</span>中任一不等于零的数。事实上，<span class="arithmatex">\(f(x)=\frac 1{c}(cf(x))\)</span>。
+7. 如果<span class="arithmatex">\(f(x)|g(x)\)</span>，<span class="arithmatex">\(g(x)|f(x)\)</span>,那么<span class="arithmatex">\(f(x)=cg(x)\)</span>，这里c是<span class="arithmatex">\(F\)</span>中一个不等于零的数。</p>
+<blockquote>
+<p>设<span class="arithmatex">\(f(x),g(x)\)</span>是任意两个多项式，并且<span class="arithmatex">\(g(x)\neq0\)</span>。那么<span class="arithmatex">\(f(x)\)</span>可以写成一下形式<span class="arithmatex">\(<span class="arithmatex">\(f(x)=g(x)q(x)+r(x)\)</span>\)</span>
+这里<span class="arithmatex">\(r(x)=0\)</span>,或者<span class="arithmatex">\(r(x)\)</span>的次数小于<span class="arithmatex">\(g(x)\)</span>的次数</p>
+</blockquote>
+<p><strong>定理2.2.1</strong>  设<span class="arithmatex">\(f(x)和g(x)\)</span>是<span class="arithmatex">\(F[x]\)</span>的任意两个多项式，并且<span class="arithmatex">\(g(x)\neq0\)</span>。那么在<span class="arithmatex">\(F[x]\)</span>中可以找到两个多项式<span class="arithmatex">\(q(x)和r(x)\)</span>，使<span class="arithmatex">\(<span class="arithmatex">\(f(x)=g(x)q(x)+r(x)\)</span>\)</span>这里<span class="arithmatex">\(r(x)=0\)</span>,或者<span class="arithmatex">\(r(x)\)</span>的次数小于<span class="arithmatex">\(g(x)\)</span>的次数。<strong>满足以上条件的多项式<span class="arithmatex">\(q(x)和r(x)\)</span>只有一对</strong>。 </p>
+<p>设数域<span class="arithmatex">\(\overline F\)</span>含有数域<span class="arithmatex">\(F\)</span>而<span class="arithmatex">\(f(x)和g(x)\)</span>是<span class="arithmatex">\(F[x]\)</span>的两个多项式。如果在<span class="arithmatex">\(F[x]\)</span>里<span class="arithmatex">\(g(x)\)</span>不能整除<span class="arithmatex">\(f(x)\)</span>，那么在<span class="arithmatex">\(\overline F[x]\)</span>里<span class="arithmatex">\(g(x)\)</span>也不能整除<span class="arithmatex">\(f(x)\)</span></p>
+<h1 id="23">2.3<a class="headerlink" href="#23" title="Permanent link">&para;</a></h1>
+<p>设<span class="arithmatex">\(F\)</span>是一个数域。<span class="arithmatex">\(F[x]是F\)</span>上一元多项式环
+<strong>定义1</strong>  令<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>是<span class="arithmatex">\(F[x]\)</span>的两个多项式。若是<span class="arithmatex">\(F[x]\)</span>的一个多项式<span class="arithmatex">\(h(x)\)</span>同时整除<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>,那么<span class="arithmatex">\(h(x)\)</span>叫作<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>的一个**公因式**。</p>
+<p><strong>定义2</strong>  设<span class="arithmatex">\(d(x)\)</span>是多项式<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>的一个公因式。若是<span class="arithmatex">\(d(x)\)</span>能被<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>的每一个公因式整除，那么<span class="arithmatex">\(d(x)\)</span>叫作<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>的一个**最大公因式**。</p>
+<p><strong>定理2.3.1</strong>  <span class="arithmatex">\(F[x]\)</span>的任意两个多项式<span class="arithmatex">\(f(x)与g(x)\)</span>一定有最大公因式。
+除一个零次因式外。<span class="arithmatex">\(f(x)与g(x)\)</span>的最大公因式式唯一确定的，就是说，若<span class="arithmatex">\(d(x)\)</span>是<span class="arithmatex">\(f(x)与g(x)\)</span>的一个最大公因式，那么数域<span class="arithmatex">\(F\)</span>的任何一个不为零的数c与<span class="arithmatex">\(d(x)\)</span>的乘积<span class="arithmatex">\(cd(x)\)</span>也是<span class="arithmatex">\(f(x)与g(x)\)</span>的一个最大公因式；而且当<span class="arithmatex">\(f(x)与g(x)\)</span>不全为零多项式时，只有这样的乘积才是<span class="arithmatex">\(f(x)与g(x)\)</span>的最大公因式。</p>
+<blockquote>
+<p>用符号<span class="arithmatex">\(<span class="arithmatex">\((f(x),g(x))\)</span>\)</span>来表示确定的最大公因式</p>
+</blockquote>
+<ul>
+<li>从数域<span class="arithmatex">\(F\)</span>过渡到数域<span class="arithmatex">\(\overline F\)</span>时，<span class="arithmatex">\(f(x)与g(x)\)</span>的最大公因式本质上**没有改变**。</li>
+</ul>
+<p><strong>定理2.3.2</strong>  若<span class="arithmatex">\(d(x)\)</span>是 <span class="arithmatex">\(F[x]\)</span>的多项式<span class="arithmatex">\(f(x)\)</span>和<span class="arithmatex">\(g(x)\)</span>的最大公因式，那么 在<span class="arithmatex">\(F[x]\)</span>里可以求得多项式<span class="arithmatex">\(u(x)与v(x)\)</span>，使得<span class="arithmatex">\(<span class="arithmatex">\(f(x)u(x)+g(x)v(x)=d(x)\)</span>\)</span></p>
+<blockquote>
+<p>注：定理2.3.2的**逆命题不成立**。</p>
+</blockquote>
+<p><strong>定义3</strong>  如果<span class="arithmatex">\(F[x]\)</span>的两个多项式除零次多项式外不再有其他的公因式。我们就说，这两个多项式互素。</p>
+<p><strong>定理2.3.3</strong>  <span class="arithmatex">\(F[x]\)</span>的两个多项式<span class="arithmatex">\(f(x)与g(x)\)</span>互素的充要条件是：在<span class="arithmatex">\(F[x]\)</span>中可以求得多项式<span class="arithmatex">\(u(x)与v(x)\)</span>，使<span class="arithmatex">\(<span class="arithmatex">\(f(x)u(x)+g(x)v(x)=1\)</span>\)</span>
+关于互素多项式：
+1. 若多项式<span class="arithmatex">\(f(x)与g(x)\)</span>都与多项式<span class="arithmatex">\(h(x)\)</span>互素，那么乘积<span class="arithmatex">\(f(x)g(x)\)</span>也与<span class="arithmatex">\(h(x)\)</span>互素
+2. 若多项式<span class="arithmatex">\(h(x)\)</span>整除多项式<span class="arithmatex">\(f(x)与g(x)\)</span>的乘积，而<span class="arithmatex">\(h(x)\)</span>与<span class="arithmatex">\(f(x)\)</span>互素，那么<span class="arithmatex">\(h(x)\)</span>一定整除<span class="arithmatex">\(g(x)\)</span>
+3. 若若多项式<span class="arithmatex">\(g(x)与h(x)\)</span>都整除多项式<span class="arithmatex">\(f(x)\)</span>，而<span class="arithmatex">\(g(x)\)</span>与<span class="arithmatex">\(h(x)\)</span>互素,那么乘积<span class="arithmatex">\(g(x)h(x)\)</span>也整除<span class="arithmatex">\(f(x)\)</span></p>
+<h1 id="24">2.4 多项式的分解<a class="headerlink" href="#24" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>给<span class="arithmatex">\(F[x]\)</span>的任何一个多项式<span class="arithmatex">\(f(x)\)</span>，那么<span class="arithmatex">\(F\)</span>的任何不为零的元素c都是<span class="arithmatex">\(f(x)\)</span>的因式。把<span class="arithmatex">\(f(x)\)</span>这样的因式叫作它的**平凡因式**。</p>
+</blockquote>
+<p><strong>定义</strong>  令<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(F[x]\)</span>的一个次数大于零的多项式。若是<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(F[x]\)</span>中只有平凡因式，<span class="arithmatex">\(f(x)\)</span>就说是在数域<span class="arithmatex">\(F\)</span>上不可约。若<span class="arithmatex">\(f(x)\)</span>除平凡因式外，在<span class="arithmatex">\(F[x]\)</span>中还有其他因式，<span class="arithmatex">\(f(x)\)</span>就说是在<span class="arithmatex">\(F\)</span>上可约。</p>
+<p>如果<span class="arithmatex">\(F[x]\)</span>的一个n(n&gt;0)次多项式能够分解成<span class="arithmatex">\(F[x]\)</span>中两个次数小于n的多项式<span class="arithmatex">\(g(x)\)</span>与<span class="arithmatex">\(h(x)\)</span>的积：<span class="arithmatex">\(<span class="arithmatex">\(f(x)=g(x)h(x)\tag1\)</span>\)</span>那么<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(F\)</span>上**可约**。
+ 若是<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(F[x]\)</span>中的任一个形容（1）的分解式总含有一个零次因式，那么<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(F\)</span>上**不可约**</p>
+<p><strong>定理2.4.1</strong>  <span class="arithmatex">\(F[x]\)</span>的每一个n(n&gt;0)次多项式<span class="arithmatex">\(f(x)\)</span>都可以分解成<span class="arithmatex">\(F[x]\)</span>的不可约多项式的乘积。</p>
+<p><strong>定理2.4.2</strong>  令<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(F[x]\)</span>的一个次数大于零的多项式，并且<span class="arithmatex">\(<span class="arithmatex">\(f(x)=p_1(x)p_2(x)\cdots p_r(x)=q_1(x)q_2(x)\cdots q_s(x),\)</span>\)</span>此处<span class="arithmatex">\(p_i(x)\)</span>与<span class="arithmatex">\(q_j(x)\)</span><span class="arithmatex">\((i=1,2,\cdots ,r;j=1,2,\cdots ,s)\)</span>都是<span class="arithmatex">\(F[x]\)</span>的不可约多项式。那么<span class="arithmatex">\(r=s\)</span>，并且适当调整<span class="arithmatex">\(q_j(x)\)</span>的次序后可使<span class="arithmatex">\(<span class="arithmatex">\(q_i(x)=c_ip_i(x),(i=1,2,\cdots ,r)\)</span>\)</span>此处<span class="arithmatex">\(c_i\)</span>是<span class="arithmatex">\(F\)</span>的不为零元素。换句话说，如果不计零次因式的差异，多项式<span class="arithmatex">\(f(x)\)</span>分解成不可约因式乘积的分解式是唯一的。</p>
+<h1 id="25">2.5 重因式<a class="headerlink" href="#25" title="Permanent link">&para;</a></h1>
+<p>数域<span class="arithmatex">\(F\)</span>上一个不可约多项式<span class="arithmatex">\(p(x)\)</span>叫作<span class="arithmatex">\(F\)</span>上多项式<span class="arithmatex">\(f(x)\)</span>的一个k重因式（k是一个非负整数），如果<span class="arithmatex">\(p(x)^k\)</span>整除<span class="arithmatex">\(f(x)\)</span>但<span class="arithmatex">\(p(x)^{k+1}\)</span>不整除<span class="arithmatex">\(f(x)\)</span>。一重因式为**单因式**。重数大于1的因式称为**重因式**，<span class="arithmatex">\(F\)</span>中任意不等于零的数是<span class="arithmatex">\(F\)</span>上任意多项式的零重因式。</p>
+<p><strong>定义</strong>  <span class="arithmatex">\(F[x]\)</span>的多项式<span class="arithmatex">\(<span class="arithmatex">\(f(x)=a_0+a_1x+a_2x^2+\cdots +a_nx^n\)</span>\)</span>的导数或一阶导数指的是 <span class="arithmatex">\(F[x]\)</span>的多项式<span class="arithmatex">\(<span class="arithmatex">\(f^`(x)=a_1+2a_2x+\cdots +na_nx^n\)</span>\)</span></p>
+<p>关于和与积的导数公式仍然成立：
+1. <span class="arithmatex">\([f(x)+g(x)]^<code>=f^</code>(x)+g^<code>(x)$
+2. $[f(x)g(x)]^</code>=f(x)g^<code>(x)+f^</code>(x)g(x)\)</span>
+3. 特别<span class="arithmatex">\(<span class="arithmatex">([f(x)<sup>k]</sup><code>=kf(x)^{k-1}f^</code>(x)\)</span>\)</span></p>
+<p><strong>定理2.5.1</strong>  设<span class="arithmatex">\(p(x)\)</span>是多项式<span class="arithmatex">\(f(x)\)</span>的一个<span class="arithmatex">\(k（k\geqslant 1）\)</span>重因式，那么<span class="arithmatex">\(p(x)\)</span>是<span class="arithmatex">\(f(x)\)</span>的导数的一个k-1重因式。</p>
+<p><strong>定理2.5.2</strong>  多项式<span class="arithmatex">\(f(x)\)</span>没有重因式的**充要条件**是：<span class="arithmatex">\(f(x)\)</span>与它的导数<span class="arithmatex">\(f^`(x)\)</span>互素。</p>
+<h1 id="26">2.6 多项式函数  多项式的根<a class="headerlink" href="#26" title="Permanent link">&para;</a></h1>
+<p>设给定<span class="arithmatex">\(R[x]\)</span>的多项式<span class="arithmatex">\(<span class="arithmatex">\(f(x)=a_0+a_1x+\cdots +a_nx^n\)</span>\)</span>
+和一个数<span class="arithmatex">\(c\in \mathbb{R}\)</span>.那么在<span class="arithmatex">\(f(x)\)</span>的表示式里，把x用c来代替，就得到<span class="arithmatex">\(\mathbb{R}\)</span>的一个数<span class="arithmatex">\(<span class="arithmatex">\(a_0+a_1c+\cdots +a_nc^n\)</span>\)</span>这个数叫作**当<span class="arithmatex">\(x=\)</span>c时<span class="arithmatex">\(f(x)\)</span>的值，并且用<span class="arithmatex">\(f(c)\)</span>表示**。</p>
+<blockquote>
+<p>由此，对于<span class="arithmatex">\(\mathbb{R}\)</span>的每一个数c，都有<span class="arithmatex">\(\mathbb{R}\)</span>中唯一确定的数<span class="arithmatex">\(f(c)\)</span>与它对应。于是就得到<span class="arithmatex">\(\mathbb{R}\)</span>到<span class="arithmatex">\(\mathbb{R}\)</span>的一个映射。这个映射是由多项式<span class="arithmatex">\(f(x)\)</span>所确定的，<strong>叫作<span class="arithmatex">\(\mathbb{R}\)</span>上一个多项式函数</strong>。</p>
+</blockquote>
+<p><strong>定理2.6.1</strong>  设<span class="arithmatex">\(f（x）\in \mathbb{R}[x],c\in \mathbb{R}\)</span>,用x-c除<span class="arithmatex">\(f(x)\)</span>所得到的余式等于当x=c时<span class="arithmatex">\(f(x)\)</span>的值<span class="arithmatex">\(f(c)\)</span>.</p>
+<p><strong>综合除法</strong>：
+设<span class="arithmatex">\(<span class="arithmatex">\(f(x)=a_0x^n+a_1x^{n-1}+a_2x^{n-2}+\cdots +a_{n-1}x+a_n\)</span>\)</span>并且设<span class="arithmatex">\(<span class="arithmatex">\(f(x)=(x-c)q(x)+r\tag1\)</span>\)</span>其中<span class="arithmatex">\(<span class="arithmatex">\(q(x)=b_0x^{n-1}+b_1x{n-2}+b_2x^{n-3}+\cdots +b_{n-2}x+b_{n-1}\)</span>\)</span>比较等式（1）中的两端同次项的系数，我们得到
+<span class="arithmatex">\(a_0=b_0,\)</span>
+<span class="arithmatex">\(a_1=b_1-cb_0,\)</span>
+<span class="arithmatex">\(a_2=b_2-cb_1,\)</span>
+<span class="arithmatex">\(\cdots\cdots\cdots\cdots,\)</span>
+<span class="arithmatex">\(a_{n-1}=b_{n-1}-cb_{n-2},\)</span>
+<span class="arithmatex">\(a_n=r-cb_{n-1},\)</span>
+由此得出
+<span class="arithmatex">\(b_0=a_0,\)</span>
+<span class="arithmatex">\(b_1=cb_0+a_1,\)</span>
+<span class="arithmatex">\(b_2=cb_1+a_2,\)</span>
+<span class="arithmatex">\(\cdots\cdots\cdots\cdots,\)</span>
+<span class="arithmatex">\(b_{n-1}=cb_{n-2}+a_{n-1},\)</span>
+<span class="arithmatex">\(r=cb_{n-1}+a_n,\)</span>
+因此按照下表所指出的算法就可以很快地陆续求出商式的系数和余式：<span class="arithmatex">\(<span class="arithmatex">\(\begin{matrix}
+c &amp;|&amp;a_0&amp;a_1&amp;a_2&amp;\cdots&amp;a_{n-1}&amp;a_n\\
++&amp;&amp;&amp;cb_0&amp;cb_1&amp;\cdots&amp;cb_{n-2}&amp;cb_{n-1}\\
+\hline &amp;&amp;b_0&amp;b_1&amp;b_2&amp;\cdots&amp;b_{n-1}&amp;r
+\end{matrix}\)</span>\)</span>
+表中的加号通常省去不写</p>
+<p><strong>定义</strong>  令<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(R[x]\)</span>的一个多项式而c是R的一个数。若是当<span class="arithmatex">\(x=c\)</span>时<span class="arithmatex">\(f(x)\)</span>的值<span class="arithmatex">\(f(c)=0\)</span>，那么c叫作<span class="arithmatex">\(f(x)\)</span>在数环R中的一个根。</p>
+<p><strong>定理2.6.2</strong>  数c时多项式<span class="arithmatex">\(f(x)\)</span>的根的充要条件时：<span class="arithmatex">\(f(x)\)</span>能被x-c整除
+<strong>定理2.6.3</strong>  设<span class="arithmatex">\(f(x)\)</span>是<span class="arithmatex">\(R[x]\)</span>中一个<span class="arithmatex">\(n\geqslant 0\)</span>次多项式。那么<span class="arithmatex">\(f(x)\)</span>在R中至多有n个不同的根
+<strong>定理2.6.4</strong>  设<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>是<span class="arithmatex">\(R[x]\)</span>的两个多项式，它们的次数都不大于n。若是以R中的n+1个或更多的不同的数来代替x时，每次所得<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>的值都相等，那么<span class="arithmatex">\(f(x)=g(x)\)</span>。
+<strong>定理2.6.5</strong>  <span class="arithmatex">\(R[x]\)</span>的两个多项式<span class="arithmatex">\(f(x)\)</span>与<span class="arithmatex">\(g(x)\)</span>相等，当且仅当它们所定义的R上多项式函数相等</p>
+<h1 id="27">2.7 复数和实数域上多项式<a class="headerlink" href="#27" title="Permanent link">&para;</a></h1>
+<p><strong>定理2.7.1</strong>（代数基本定理）  任何<span class="arithmatex">\(n(n&gt;0)\)</span>次多项式在复数域中至少有一个根
+<strong>定理2.7.2</strong>  任何<span class="arithmatex">\(n(n&gt;0)\)</span>次多项式在复数域中有n个根（重根按重数计算）</p>
+<blockquote>
+<p>复数域<span class="arithmatex">\(\mathbb{C}\)</span>上任一<span class="arithmatex">\(n(n&gt;0)\)</span>次多项式可以在<span class="arithmatex">\(\mathbb{C}[x]\)</span>里分解为一次因式的乘积。复数域上任一次数大于1的多项式都是可约的。</p>
+</blockquote>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-01-25 10:22:55</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%A1%8C%E5%88%97%E5%BC%8F/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.1 线性方程组和行列式" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                3.1 线性方程组和行列式
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E7%9F%A9%E9%98%B5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 5.1 矩阵的运算" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                5.1 矩阵的运算
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2023 x-inker
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+        <script src="../../stylesheet/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
